@@ -1,0 +1,115 @@
+---
+title: "GPDI517: Bixi Usage data"
+author: "Esther Schott"
+date: "Oct 4th, 2019"
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(lubridate) # for working with dates
+library(here)
+library(plotly)
+```
+
+# Preparations
+## Reading in Data
+The bixi usage data can also be downloaded from https://montreal.bixi.com/c/bixi/file_db/data_all.file/BixiMontrealRentals2019.zip
+
+
+
+```{r}
+
+trip_data <- read_csv(here::here("data","Bixi data", "OD_2019-07.csv"))
+
+```
+
+# Let's get an overview of the data frame
+
+```{r}
+head(trip_data)
+```
+
+## What's up with the station code?
+
+In this particular dataset, the variable `start_station_code` and `end_station_code` is a number between 4000-10002. But ideally we want to know where the station is. For that, we need to read in another dataset., and then merge the two. We use `left_join` to merge the two, because we want to keep all rows from `trip data` and add add the matching columns `name`, `longitude`, and `latitude`. Then we need to rename these columns to make clear that they refer to the start station of the trip (not the end station of the trip). We could do the same join then with by `c("end_station_code" = "code")`, but we're only interested in where people start their trips for now.  
+```{r}
+
+
+
+```
+## Some data reorganization
+```{r}
+
+```
+
+
+# Diving into visualization
+## What are the ten most popular start stations?
+```{r}
+
+```
+
+## Let's plot the most popular stations
+
+```{r}
+
+```
+
+## How long are trips on average?
+
+We can also get the result of a calculation in text. 
+For example: The median bixi trip is _`r median(bixi_data$duration_min)`_ minutes in length.
+```{r}
+```
+
+
+## Do members take longer trips?
+Some users are members of the service (meaning they pay a one-time fee for a fixed period), and some are not (meaning they pay per-trip). Is there a difference in usage between the two?
+```{r}
+
+
+
+```
+
+
+## Are the trip times different on weekends and during the week?
+To do this, we first need to get the just the time of day (without the date). Then, we need to get just the weekday using `wday`, and we need to specify that we want the week to start with Monday (`week_start = 1`) not Sunday. 
+```{r}
+
+
+
+```
+
+## Are trips longer depending on the time of day?
+For example, is usage longer in the morning/evening? How does that change on weekends?
+```{r}
+
+
+
+  
+```
+
+# create an interactive plot using plotly
+With plotly, we can "interact" with the plot, for example hover over specific dots to see what they represent. 
+## Do the most popular stations change by hour?
+```{r}
+
+
+
+```
+
+
+
+# Save dataframe for use in other scripts
+We can either save the dataframe using `saveRDS()` which saves an r data file that can be opened only in R, but it preserves all the r data types. We can also use `write_csv()` which can be opened  in Excel, however if we read it back into R we have to be careful to check that R recognizes the data types correctly.
+```{r}
+
+
+```
+
+
+
