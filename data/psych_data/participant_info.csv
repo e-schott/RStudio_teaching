@@ -1,0 +1,33 @@
+subj_id,age,gender,lang_group,keeper,quest,nonkeeper_reason
+1,41,M,monolingual,1,31,
+2,25,F,bilingual,1,37,
+3,24,F,bilingual,1,28,
+4,21,F,bilingual,1,30,
+5,36,F,bilingual,1,21,
+6,41,M,monolingual,1,30,
+7,40,F,bilingual,1,34,
+8,27,F,monolingual,1,17,
+9,28,F,bilingual,1,8,
+10,25,F,monolingual,1,35,
+11,30,F,bilingual,0,18,language
+12,20,NB,bilingual,1,27,
+13,30,M,bilingual,1,27,
+14,21,M,monolingual,1,31,
+15,24,M,monolingual,0,8,not enough trials
+16,29,M,monolingual,1,24,
+17,26,M,monolingual,0,30,technical problems
+18,24,F,bilingual,1,43,
+19,23,M,bilingual,1,16,
+20,26,F,bilingual,1,23,
+21,26,F,bilingual,0,15,technical problems
+22,32,F,monolingual,1,24,
+23,19,M,bilingual,1,38,
+24,19,F,monolingual,1,35,
+25,24,F,monolingual,0,23,technical problems
+26,28,M,bilingual,1,23,
+27,21,M,monolingual,1,21,
+28,23,M,bilingual,1,20,
+29,32,F,monolingual,1,9,
+30,27,F,monolingual,1,39,
+31,26,M,monolingual,1,19,
+32,23,M,bilingual,1,11,
